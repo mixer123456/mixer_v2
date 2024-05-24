@@ -1,5 +1,5 @@
 from constants import MSG_HR, MSG_INPUT_FOOD_NAME, MSG_INPUT_FOOD_RECIPE
-from templates import TPL_FOOD_NAME,  TPL_FOOD_RECIPE
+from templates import TPL_FOOD_NAME, TPL_FOOD_RECIPE
 
 print(MSG_HR)
 food = input(MSG_INPUT_FOOD_NAME).strip().upper()
