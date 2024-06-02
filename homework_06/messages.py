@@ -12,4 +12,3 @@ PAGE_CONTENT = """
 
 SUMMER_PLAN_REQUEST = 'Введіть плани на літо'
 SUMMER_PLAN_INFO = 'Кількість символів у вашому плані {info}'
-

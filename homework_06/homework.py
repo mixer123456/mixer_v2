@@ -23,4 +23,3 @@ put_text(messages.SUMMER_PLAN_INFO.format(
 img = open(page_main_image_path, 'rb').read()
 put_image(img, width=f'{page_main_image_width_px}px')
 put_text('end')
-
