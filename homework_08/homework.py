@@ -23,10 +23,20 @@ def print_username_request() -> str:
     return username
 
 
-def print_question(question: str, answer: str | int, type: str) -> bool:
-    users_answer = input_pw(question, type=type)
+def get_input_type_by_answer(answer: str | int) -> str:
+    input_type = TEXT
+    is_answer_is_int = isinstance(answer, int)
+    if is_answer_is_int:
+        input_type = NUMBER
 
-    if type == TEXT:
+    return input_type
+
+
+def print_question(question: str, answer: str | int) -> bool:
+    input_type = get_input_type_by_answer(answer)
+    users_answer = input_pw(question, type=input_type)
+
+    if input_type == TEXT:
         answer = answer.lower()
         users_answer = users_answer.lower()
 
@@ -62,23 +72,23 @@ def main():
     username = print_username_request()
 
     total_score = 0
-    answer = print_question(constants.QUESTION_1, constants.QUESTION_1_ANSWER, constants.QUESTION_1_TYPE)
+    answer = print_question(constants.QUESTION_1, constants.QUESTION_1_ANSWER)
     if answer:
         total_score += 1
 
-    answer = print_question(constants.QUESTION_2, constants.QUESTION_2_ANSWER, constants.QUESTION_2_TYPE)
+    answer = print_question(constants.QUESTION_2, constants.QUESTION_2_ANSWER)
     if answer:
         total_score += 1
 
-    answer = print_question(constants.QUESTION_3, constants.QUESTION_3_ANSWER, constants.QUESTION_3_TYPE)
+    answer = print_question(constants.QUESTION_3, constants.QUESTION_3_ANSWER)
     if answer:
         total_score += 1
 
-    answer = print_question(constants.QUESTION_4, constants.QUESTION_4_ANSWER, constants.QUESTION_4_TYPE)
+    answer = print_question(constants.QUESTION_4, constants.QUESTION_4_ANSWER)
     if answer:
         total_score += 1
 
-    answer = print_question(constants.QUESTION_5, constants.QUESTION_5_ANSWER, constants.QUESTION_5_TYPE)
+    answer = print_question(constants.QUESTION_5, constants.QUESTION_5_ANSWER)
     if answer:
         total_score += 1
 
