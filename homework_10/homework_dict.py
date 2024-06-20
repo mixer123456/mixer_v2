@@ -109,13 +109,17 @@ def show_good_students(good_students: list) -> None:
 
 
 def get_avg_mark_group(students: dict) -> float:
-    students_list = students.keys()
-    students_list_count = len(students_list)
     result = 0
-    for student_data in students.values():
+
+    students_list = students.values()
+    students_count = len(students_list)
+
+    for student_data in students_list:
         student_avg_mark = student_data.get(translate_key('avg_mark'))
         result += student_avg_mark
-    result /= students_list_count
+
+    result /= students_count
+
     return result
 
 
