@@ -41,7 +41,7 @@ from pywebio.session import run_js
 from pywebio import start_server
 from pprint import pprint
 
-import configs, constants
+import configs, constants, utils
 
 
 def get_dict_key(input_student: dict) -> str:
@@ -103,36 +103,66 @@ def get_good_students(students: dict, avg_mark: float) -> list:
 def show_good_students(good_students: list) -> None:
     put_html(constants.MSG_HEADER_GOOD_STUDENTS)
     put_table(good_students, [
-        constants.TABLE_NAME,
-        constants.TABLE_AVG_MARK
+        constants.MSG_NAME,
+        constants.MSG_AVG_MARK
+    ])
+
+
+def get_avg_mark_group(students: dict) -> float:
+    students_list = students.keys()
+    students_list_count = len(students_list)
+    result = 0
+    for student_data in students.values():
+        student_avg_mark = student_data.get(translate_key('avg_mark'))
+        result += student_avg_mark
+    result /= students_list_count
+    return result
+
+
+def show_avg_mark_group(avg_mark: float) -> None:
+    put_html(constants.MSG_HEADER_AVG_MARK_GROUP)
+    put_html(constants.MSG_BLOCK_AVG_MARK_GROUP.format(
+        avg_mark=round(avg_mark, 1)
+    ))
+
+
+def get_students_list(students: dict) -> list:
+    result = []
+    for name, student_data in students.items():
+        item = [
+            name,
+            student_data.get(translate_key('avg_mark')),
+            student_data.get(translate_key('phone')) or constants.MSG_EMPTY_PHONE,
+            student_data.get(translate_key('email')) or constants.MSG_EMPTY_EMAIL
+        ]
+        result.append(item)
+    return result
+
+
+def show_students_list(students_list: list) -> None:
+    put_html(constants.MSG_HEADER_LIST_STUDENTS)
+    put_table(students_list, [
+        constants.MSG_NAME,
+        constants.MSG_AVG_MARK,
+        constants.MSG_PHONE,
+        constants.MSG_EMAIL
     ])
 
 
 def main():
-    # put_text('Найга')
+    input_student = request_student_data()
+    add_student(input_student)
 
-    # test translate_key
-    # key = 'phone'
-    # expected_key = 'Номер телефону'
-    # actual_key = translate_key(key)
-
-    # test get_dict_key
-    # input_student = {
-    #     'name': 'max',
-    #     'surname': 'epishkin',
-    #     'email': 'test@gmail.com',
-    #     'age': 18,
-    #     'phone': '+380765467897676',
-    #     'avg_mark': 65,
-    # }
-    # expected_result = 'max epishkin'
-    # actual_result = get_dict_key(input_student)
-    # add_student(input_student)
-    # pprint(students)
-    # get_good_students(students, 50)
-    good_students = get_good_students(students, 50)
+    good_students = get_good_students(students, 90)
     show_good_students(good_students)
-    pass
+
+    avg_mark_group = get_avg_mark_group(students)
+    show_avg_mark_group(avg_mark_group)
+
+    students_list = get_students_list(students)
+    show_students_list(students_list)
+
+    utils.reload_page(configs.PAGE_RELOAD_TIMEOUT_MS)
 
 
 if __name__ == '__main__':
