@@ -71,7 +71,6 @@ def add_student(input_student: dict) -> None:
     students[key] = student
 
 
-#     name, surname, email, age, phone, avg_mark
 def request_student_data() -> dict:
     input_student = input_group(
         constants.MSG_FORM_LABEL,
