@@ -1,10 +1,7 @@
 import requests
-from pywebio.input import textarea, select, checkbox, radio, FLOAT, DATE, PASSWORD, DATETIME, input as input_pw, slider, \
-    input_group
-from pywebio.output import put_success, put_error, put_warning, put_image, put_html, put_table, put_text
-from pywebio.session import run_js
+
+from pywebio.output import put_html
 from pywebio import start_server
-from pprint import pprint
 
 import configs, constants, utils
 
@@ -52,15 +49,6 @@ def main():
     animals = get_animals()
     animals_summary = get_animals_summary(animals)
     show_animal_summary(animals_summary)
-    # put_html(constants.MSG_POISONOUS_COST_CARRYING.format(
-    #     poisonous_cost_carrying=animals_summary['poisonous_cost_carrying']
-    # ))
-    # put_html(constants.MSG_ANIMALS_COUNT.format(
-    #     animals_count=animals_summary['animals_count']
-    # ))
-    # put_html(constants.MSG_ANIMALS_COUNT_FROM_AFRICA.format(
-    #     animals_count_from_africa=animals_summary['animals_count_from_africa']
-    # ))
 
     utils.reload_page(configs.PAGE_RELOAD_TIMEOUT_MS)
 
