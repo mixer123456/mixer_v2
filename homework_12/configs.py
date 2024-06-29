@@ -1,0 +1,4 @@
+SERVER_PORT = 4000
+PAGE_RELOAD_TIMEOUT_MS = 10000
+
+ENDPOINT_ANIMALS = 'https://script.google.com/macros/s/AKfycbyBPbLsAPiyoNDOIV0b3JDWQy_9IETZLcSxU1Sd-Zt3KB9Fz5xjz_8LA4opQOFrx4V1/exec'
