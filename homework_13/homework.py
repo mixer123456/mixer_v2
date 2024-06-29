@@ -1,5 +1,3 @@
-from sys import getsizeof
-from copy import copy, deepcopy
 from pprint import pprint
 
 # завдання 1
@@ -17,12 +15,13 @@ student_grades_9b = {
     "Ольга Вікторівна Литвиненко": 80
 }
 
-all_student_1= {}
-all_student_1.update(student_grades_9a)
-all_student_1.update(student_grades_9b)
+all_students_1= {}
+all_students_1.update(student_grades_9a)
+all_students_1.update(student_grades_9b)
+pprint(all_students_1)
 
-all_student_2 = {**student_grades_9a, **student_grades_9b}
-pprint(all_student_2)
+all_students_2 = {**student_grades_9a, **student_grades_9b}
+pprint(all_students_2)
 # завдання 2
 text = """
 Технології розвиваються стрімко. Кожен день ми спостерігаємо нові досягнення в науці та техніці. Комп'ютери стають все потужнішими, а програмне забезпечення – складнішим. Проте, разом з цими досягненнями зростає і потреба в нових спеціалістах, здатних працювати з сучасними технологіями.
@@ -37,10 +36,10 @@ def delete_punctuation(text: str) -> str:
 text = delete_punctuation(text).lower()
 text_list = text.split()
 text_set = set(text_list)
-text_len = len(text_set)
+task_2 = len(text_set)
 
 
-print(text_set)
+print(f'{task_2 = }')
 
 
 
