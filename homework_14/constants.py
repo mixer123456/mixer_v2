@@ -1,0 +1,1 @@
+MSG_FROM = 'Email was sent from {user}'
