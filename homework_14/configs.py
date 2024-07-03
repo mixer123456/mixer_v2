@@ -6,5 +6,6 @@ from dotenv import load_dotenv
 load_dotenv()
 
 TOKEN_UKR_NET: Final = os.getenv('TOKEN_UKR_NET')
-MAIL_USER: Final = os.getenv('MAIL_USER')
+USERS_EMAIL: Final = os.getenv('USERS_EMAIL')
+USERNAME: Final = os.getenv('USERNAME')
 STMP_SERVER: Final = os.getenv('STMP_SERVER')
