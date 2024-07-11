@@ -1,0 +1,1 @@
+MSG_HEADER = 'Airports names of Ukraine'
