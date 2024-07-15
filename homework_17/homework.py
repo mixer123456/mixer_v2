@@ -3,8 +3,8 @@ from typing import Callable
 
 def decorator():
     def _decorator(func: Callable):
-        def wrapper(*args):
-            result = func(*args)
+        def wrapper(*args, **kwargs):
+            result = func(*args, **kwargs)
             return {'result': result}
 
         return wrapper
@@ -18,7 +18,7 @@ def add_two_numbers(first_numbers: int, second_number: int) -> int:
     return result
 
 
-result = add_two_numbers(150, 150)
+result = add_two_numbers(150, second_number=150)
 print(result)
 
 
