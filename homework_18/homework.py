@@ -1,11 +1,19 @@
+import constants
+
+
 class Car:
 
     def __init__(self, *, brand: str, model: str, fuel_consumption: float, year: int = 2020):
-        self.__year_of_issue = year
-        self.brand = brand.title()
-        self.model = model.title()
-        self.__fuel_consumption = fuel_consumption
+        if year < 1900:
+            raise Exception('too old car')
 
+        if fuel_consumption < 0:
+            raise Exception(constants.MSG_NEGATIVE_FUEL_CONSUMPTION)
+
+        self.__year_of_issue = year
+        self.__brand = brand.title()
+        self.__model = model.title()
+        self.__fuel_consumption = fuel_consumption
         self.__mileage = 0
 
 
@@ -13,16 +21,15 @@ class Car:
     def year_of_issue(self) -> int:
         return self.__year_of_issue
 
-    @year_of_issue.setter
-    def year_of_issue(self, value):
-        self.__year_of_issue = value
-
     @property
     def mileage(self) -> int:
         return self.__mileage
 
     @mileage.setter
-    def mileage(self, value):
+    def mileage(self, value: int):
+        if value < 0:
+            raise Exception(constants.MSG_NEGATIVE_MILEAGE)
+
         self.__mileage = value
 
     @property
@@ -31,19 +38,22 @@ class Car:
 
     @fuel_consumption.setter
     def fuel_consumption(self, value):
+        if value < 0:
+            raise Exception(constants.MSG_NEGATIVE_FUEL_CONSUMPTION)
         self.__fuel_consumption = value
 
     def __str__(self) -> str:
         if self.__fuel_consumption:
-            return f'{self.__year_of_issue} car from {self.brand} {self.model} model with fuel consumption {self.__fuel_consumption}'
+            return f'{self.__brand} {self.__model} with fuel consumption {self.__fuel_consumption} {self.__year_of_issue} year'
         else:
-            return f'{self.__year_of_issue} car from {self.brand} {self.model} model and it is electric car'
+            return f'Electric car {self.__brand} {self.__model} {self.__year_of_issue} year'
 
 
 car1 = Car(year=2021, brand='porsche', model='cayman', fuel_consumption=22.1)
-print(car1)
+car1.mileage = -500
 car2 = Car(year=2023, brand='tesla', model='model x', fuel_consumption=0)
-print(car2)
 car3 = Car(year=2020, brand='mercedes', model='AMG', fuel_consumption=30.0)
-print(car3)
 
+print(car1)
+print(car2)
+print(car3)
