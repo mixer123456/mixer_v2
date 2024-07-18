@@ -1,5 +1,4 @@
 import datetime
-
 import exceptions
 
 
@@ -52,8 +51,7 @@ class Car:
             return f'Electric car {self.__brand} {self.__model} {self.__year_of_issue} year'
 
 
-car1 = Car(year=2029, brand='porsche', model='cayman', fuel_consumption=22.1)
-car1.mileage = -500
+car1 = Car(year=2021, brand='porsche', model='cayman', fuel_consumption=22.1)
 car2 = Car(year=2023, brand='tesla', model='model x', fuel_consumption=0)
 car3 = Car(year=2020, brand='mercedes', model='AMG', fuel_consumption=30.0)
 
