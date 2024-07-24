@@ -48,9 +48,9 @@ class DVD(LibraryItem):
         return f"DVD's title: {self.title},DVD's author/director: {self.author_or_director}, Year: {self.year}, Duration: {self.duration}"
 
 
-book = Book('gfgfd', 'grgrgr', 2011)
+book = Book('Ivanhoe', 'Walter Scott', 1819)
 print(book.description())
-magazine = Magazine('rrfrf', 'rfrfrdsefgf', 1967)
+magazine = Magazine('Time', 'Henry Luce', 1923)
 print(magazine.description())
-dvd = DVD('rgergerd', 'gbgvgbvnnb', 2005)
+dvd = DVD('Lord of The Ring', 'Peter Jackson', 2001)
 print(dvd.description())
