@@ -1,6 +1,6 @@
-from homework_19.library.Book import Book
-from homework_19.library.Magazine import Magazine
-from homework_19.library.DVD import DVD
+from homework_19.library.book import Book
+from homework_19.library.magazine import Magazine
+from homework_19.library.dvd import DVD
 
 
 def main():

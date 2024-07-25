@@ -1,4 +1,4 @@
-from homework_19.library.LibraryItem import LibraryItem
+from homework_19.library.library_item import LibraryItem
 
 
 class Book(LibraryItem):
