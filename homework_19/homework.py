@@ -1,43 +1,6 @@
-from abc import ABC, abstractmethod
-
-
-class LibraryItem(ABC):
-    def __init__(self, title: str, author_or_director: str, year: int):
-        self.title = title.title()
-        self.author_or_director = author_or_director.title()
-        self.year = year
-
-    @abstractmethod
-    def description(self):
-        return f'Title: {self.title}, Author/Director: {self.author_or_director}, Year: {self.year}'
-
-
-class Book(LibraryItem):
-    def __init__(self, title: str, author_or_director: str, year: int, number_of_pages: int):
-        self.number_of_pages = number_of_pages
-        super().__init__(title, author_or_director, year)
-
-    def description(self):
-        return f"Book's title: {self.title}, Book's author/director: {self.author_or_director}, Year: {self.year}, Count of pages: {self.number_of_pages}"
-
-
-class Magazine(LibraryItem):
-    def __init__(self, title: str, author_or_director: str, year: int, issue_number: int):
-        self.issue_number = issue_number
-        super().__init__(title, author_or_director, year)
-
-    def description(self):
-        return f"Magazine's title: {self.title},Magazine's author/director: {self.author_or_director}, Year: {self.year}, Issue number: {self.issue_number}"
-
-
-class DVD(LibraryItem):
-    def __init__(self, title: str, author_or_director: str, year: int, duration: int):
-        self.duration = duration
-        super().__init__(title, author_or_director, year)
-
-    def description(self):
-        return f"DVD's title: {self.title},DVD's author/director: {self.author_or_director}, Year: {self.year}, Duration: {self.duration}"
-
+from homework_19.Book import Book
+from homework_19.DVD import DVD
+from homework_19.Magazine import Magazine
 
 book1 = Book('The Hobbit', 'J.R.R. Tolkien', 1937, 320)
 book2 = Book('The Lord of the Rings', 'J.R.R. Tolkien', 1954, 752)
