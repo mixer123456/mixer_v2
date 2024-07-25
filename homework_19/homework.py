@@ -1,6 +1,6 @@
-from homework_19.Book import Book
-from homework_19.DVD import DVD
-from homework_19.Magazine import Magazine
+from homework_19.library.Book import Book
+from homework_19.library.DVD import DVD
+from homework_19.library.Magazine import Magazine
 
 book1 = Book('The Hobbit', 'J.R.R. Tolkien', 1937, 320)
 book2 = Book('The Lord of the Rings', 'J.R.R. Tolkien', 1954, 752)

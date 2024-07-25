@@ -1,4 +1,4 @@
-from homework_19.LibraryItem import LibraryItem
+from homework_19.library.LibraryItem import LibraryItem
 
 
 class Magazine(LibraryItem):
