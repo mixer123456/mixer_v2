@@ -1,14 +1,14 @@
-def price_with_discount(price: int | float, percent: int) -> float:
+def get_price_discounted(price: int | float, percent: int) -> float:
     if percent <= 0:
-        raise ValueError('Too small percent')
-    if percent > 100:
-        raise ValueError('Too big percent')
+        raise ValueError("Percent can't be zero or negative")
+    if percent >= 100:
+        raise ValueError("Percent can't be bigger that 100")
     if price <= 0:
-        raise ValueError("Aren't you have money?")
-    discount = percent / 100 * price
-    price_with_percent = price - discount
-    return round(price_with_percent, 2)
+        raise ValueError("Price can't be zero or negative")
+    price_with_discount = price * percent / 100
+    discounted = price - price_with_discount
+    return round(discounted, 2)
 
 
-x = price_with_discount(10, 20)
+x = get_price_discounted(10, 20)
 print(x)
