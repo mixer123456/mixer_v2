@@ -18,3 +18,7 @@
 
 git clone и ссылка которую вам дал гитхаб после нажатия на зеленую кнопку code и SSH
 
+команды для pytest
+pytest .
+pytest -v .
+ pytest -v -s .         
