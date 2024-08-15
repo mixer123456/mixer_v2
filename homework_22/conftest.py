@@ -1,6 +1,6 @@
 import pytest
 
-from homework import Library, Book
+from entities.library import Library, Book
 
 
 @pytest.fixture(scope='class')

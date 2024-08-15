@@ -1,6 +1,6 @@
 import pytest
 
-from homework import Book, ZeroOrNegativePageError, SoOldBookError
+from entities.book import Book, ZeroOrNegativePageError, SoOldBookError
 
 
 class TestLibrary:
